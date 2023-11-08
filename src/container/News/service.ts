@@ -11,11 +11,11 @@ export const getNewsArticle = async (
   section: string,
   { pageSize, offset = 0, currentPage = 1 }: QueryInterface
 ): Promise<unknown> => {
-  // const cacheKey = `news:${section}:${pageSize}:${offset}:${currentPage}`;
-  // const cachedData = cache.get(cacheKey);
-  // if (cachedData) {
-  //   return cachedData;
-  // }
+  const cacheKey = `news:${section}:${pageSize}:${offset}:${currentPage}`;
+  const cachedData = cache.get(cacheKey);
+  if (cachedData) {
+    return cachedData;
+  }
 
   const sectionRegex = /^[a-z]+(-[a-z]+)*$/;
   if (!sectionRegex.test(section) || !section?.match("-")) {
@@ -48,6 +48,6 @@ export const getNewsArticle = async (
     pages: Math.ceil(count / pageSize),
     results: rows,
   };
-  // cache.set(cacheKey, response);
+  cache.set(cacheKey, response);
   return response;
 };

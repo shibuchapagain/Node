@@ -5,7 +5,6 @@ const { fakeData } = require("./fakeData");
 export const loadFakeData = async () => {
   try {
     const isAlreadyExist = await NewsArticle.findAll();
-    console.log(isAlreadyExist, "one");
     if (isAlreadyExist?.length) {
       log.info("Data already loaded on database");
       return;
