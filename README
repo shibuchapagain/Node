@@ -4,8 +4,6 @@
 
 --> Use .env.example for env to remove .example part.
 
---> Use .env.example database connection string on config/config.json.
-
 --> I have an database password "rootroot", if there is no any password then use " " only on DB_PASSWORD.
 
 --> I have use sequelize (mysql ORM) for database, need to install with command: npx sequelize-cli db:migrate.
